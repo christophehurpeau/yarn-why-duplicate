@@ -44,6 +44,6 @@
     "@pob/eslint-config": "50.0.4",
     "@pob/root": "7.7.0",
     "check-package-dependencies": "6.3.1",
-    "eslint": "8.37.0"
+    "eslint": "8.38.0"
   }
 }
