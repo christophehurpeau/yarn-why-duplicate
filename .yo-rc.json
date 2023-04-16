@@ -1,0 +1,17 @@
+{
+  "pob": {
+    "project": {
+      "type": "app",
+      "packageManager": "yarn",
+      "yarnNodeLinker": "node-modules"
+    },
+    "renovate": {
+      "enable": true
+    },
+    "app": {
+      "type": "node",
+      "testing": false,
+      "ci": true
+    }
+  }
+}

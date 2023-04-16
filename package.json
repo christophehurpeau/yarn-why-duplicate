@@ -1,0 +1,49 @@
+{
+  "name": "yarn-why-duplicate",
+  "version": "1.1.0",
+  "description": "Simple bin to know why a package is duplicated",
+  "keywords": [
+    "yarn",
+    "berry"
+  ],
+  "author": "Christophe Hurpeau <christophe@hurpeau.com> (https://christophe.hurpeau.com)",
+  "license": "ISC",
+  "repository": "https://github.com/christophehurpeau/yarn-why-duplicate.git",
+  "homepage": "https://github.com/christophehurpeau/yarn-why-duplicate#readme",
+  "bugs": {
+    "url": "https://github.com/christophehurpeau/yarn-why-duplicate/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@3.5.0",
+  "main": "./lib/index.js",
+  "bin": "./bin/yarn-why-duplicate.mjs",
+  "scripts": {
+    "checks": "node scripts/check-package.js",
+    "lint": "yarn run lint:prettier && yarn run lint:eslint",
+    "lint:eslint": "eslint --report-unused-disable-directives --resolve-plugins-relative-to . --quiet *.{js,cjs,mjs} lib bin scripts",
+    "lint:prettier": "pob-root-prettier --check .",
+    "lint:prettier:fix": "pob-root-prettier --write .",
+    "postinstallDev": "pob-root-postinstall"
+  },
+  "prettier": "@pob/root/prettier-config",
+  "commitlint": {
+    "extends": [
+      "@pob/commitlint-config"
+    ]
+  },
+  "pob": {},
+  "dependencies": {
+    "@yarnpkg/core": "4.0.0-rc.42",
+    "semver": "7.4.0"
+  },
+  "devDependencies": {
+    "@pob/commitlint-config": "5.1.1",
+    "@pob/eslint-config": "50.0.4",
+    "@pob/root": "7.7.0",
+    "check-package-dependencies": "6.3.1",
+    "eslint": "8.37.0"
+  }
+}
