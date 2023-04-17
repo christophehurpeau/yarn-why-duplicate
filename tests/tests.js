@@ -19,19 +19,26 @@ const loadAndAssert = (fileName, expected) => {
   displayDuplicates(duplicates, (log = '') => logs.push(log), configuration);
   strictEqual(logs.join('\n'), expected);
 };
+
 // no duplicates
 loadAndAssert(
   'date-fns.txt',
-  'date-fns@npm:1.30.1\n' +
+  'Found 1 version:\n' +
+    '\n' +
+    'date-fns@npm:1.30.1\n' +
     '- @ornikar/learner-apps-shared@workspace:@ornikar/learner-apps-shared (date-fns@npm:1.30.1)\n' +
     '- @ornikar/learner-native-app@workspace:@ornikar/learner-native-app (date-fns@npm:1.30.1)\n' +
     '- @ornikar/learner-webapp@workspace:@ornikar/learner-webapp (date-fns@npm:1.30.1)\n' +
     '- date-fns-timezone@npm:0.1.4 (date-fns@npm:^1.29.0)\n' +
     '- listr-verbose-renderer@npm:0.5.0 (date-fns@npm:^1.27.2)\n',
 );
+
+// simple duplicates
 loadAndAssert(
   'type-fest.txt',
-  'type-fest@npm:3.5.3\n' +
+  'Found 14 versions:\n' +
+    '\n' +
+    'type-fest@npm:3.5.3\n' +
     '- @ornikar/api-helpers@npm:4.9.8 (type-fest@npm:^3.3.0)\n' +
     '- @ornikar/kitt-universal@npm:9.47.2 (type-fest@npm:^3.0.0)\n' +
     '- @ornikar/kitt@npm:34.6.4 (type-fest@npm:^3.0.0)\n' +
@@ -88,15 +95,23 @@ loadAndAssert(
     'type-fest@npm:0.3.1\n' +
     '- load-json-file@npm:5.3.0 (type-fest@npm:^0.3.0)\n' +
     '- tempy@npm:0.3.0 (type-fest@npm:^0.3.1)\n',
-); // simple duplicates
+);
+
+// example with patch
 loadAndAssert(
   'native-base.txt',
-  'native-base@patch:native-base@npm%3A3.4.18#./.yarn/patches/native-base-npm-3.4.18-63dd34e5ad.patch::version=3.4.18&hash=f36c02&locator=%40ornikar%2Flearner-apps-monorepo%40workspace%3A.\n' +
+  'Found 1 version:\n' +
+    '\n' +
+    'native-base@patch:native-base@npm%3A3.4.18#./.yarn/patches/native-base-npm-3.4.18-63dd34e5ad.patch::version=3.4.18&hash=f36c02&locator=%40ornikar%2Flearner-apps-monorepo%40workspace%3A.\n' +
     '- @ornikar/kitt-universal@npm:9.47.2 (native-base@patch:native-base@npm%3A3.4.18#./.yarn/patches/native-base-npm-3.4.18-63dd34e5ad.patch::locator=%40ornikar%2Flearner-apps-monorepo%40workspace%3A.)\n',
-); // example with patch
+);
+
+// complex duplicates
 loadAndAssert(
   'validators.txt',
-  '@ornikar/validators@npm:7.3.0\n' +
+  'Found 2 versions:\n' +
+    '\n' +
+    '@ornikar/validators@npm:7.3.0\n' +
     '- @ornikar/learner-apps-shared@workspace:@ornikar/learner-apps-shared (@ornikar/validators@npm:7.3.0)\n' +
     '- @ornikar/learner-native-app@workspace:@ornikar/learner-native-app (@ornikar/validators@npm:7.3.0)\n' +
     '- @ornikar/learner-webapp@workspace:@ornikar/learner-webapp (@ornikar/validators@npm:7.3.0)\n' +
@@ -105,4 +120,28 @@ loadAndAssert(
     '@ornikar/validators@npm:7.2.11\n' +
     '- @ornikar/react-forms-universal@npm:12.2.0 (@ornikar/validators@npm:^7.2.10)\n' +
     '- @ornikar/react-validators@npm:8.0.8 (@ornikar/validators@npm:^7.2.11)\n',
-); // complex duplicates
+);
+
+loadAndAssert(
+  'virtual-child.txt',
+  'Found 2 versions:\n' +
+    '\n' +
+    '@storybook/api@npm:6.5.17-alpha.0\n' +
+    '- @storybook/addon-actions@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-backgrounds@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-controls@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-docs@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-essentials@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-measure@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-outline@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-toolbars@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addon-viewport@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/addons@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/builder-webpack4@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/builder-webpack5@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '- @storybook/ui@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
+    '\n' +
+    '@storybook/api@npm:6.5.16\n' +
+    '- @storybook/addons@npm:6.5.16 (@storybook/api@npm:6.5.16)\n' +
+    '- @storybook/ui@npm:6.5.16 (@storybook/api@npm:6.5.16)\n',
+);
