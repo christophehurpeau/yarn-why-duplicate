@@ -15,18 +15,27 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "packageManager": "yarn@3.5.0",
   "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
   "bin": "./bin/yarn-why-duplicate.mjs",
   "scripts": {
     "checks": "node scripts/check-package.js",
+    "clean:build": "true",
     "lint": "yarn run lint:prettier && yarn run lint:eslint",
     "lint:eslint": "eslint --report-unused-disable-directives --resolve-plugins-relative-to . --quiet *.{js,cjs,mjs} lib bin scripts",
     "lint:prettier": "pob-root-prettier --check .",
     "lint:prettier:fix": "pob-root-prettier --write .",
-    "postinstallDev": "pob-root-postinstall"
+    "postinstallDev": "pob-root-postinstall",
+    "test": "node --test",
+    "test:coverage": "node --test",
+    "test:watch": "node --test --watch"
   },
   "prettier": "@pob/root/prettier-config",
   "commitlint": {
@@ -42,7 +51,7 @@
   "devDependencies": {
     "@pob/commitlint-config": "5.1.1",
     "@pob/eslint-config": "50.0.4",
-    "@pob/root": "7.7.0",
+    "@pob/root": "7.8.0",
     "check-package-dependencies": "6.3.2",
     "eslint": "8.38.0"
   }
