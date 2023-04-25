@@ -1,6 +1,6 @@
 {
   "name": "yarn-why-duplicate",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Simple bin to know why a package is duplicated",
   "keywords": [
     "yarn",
