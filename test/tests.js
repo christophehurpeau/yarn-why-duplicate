@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import { strictEqual } from 'assert/strict';
 import fs from 'fs';
 import { Configuration } from '@yarnpkg/core';
@@ -128,12 +129,13 @@ test('complex duplicates', () => {
   );
 });
 
-test('vitual child', () => {
+test('virtual child', () => {
   loadAndAssert(
     'virtual-child.txt',
     'Found 2 versions:\n' +
       '\n' +
       '@storybook/api@npm:6.5.17-alpha.0\n' +
+      '- @ornikar/kitt-monorepo@workspace:. (@storybook/api@npm:6.5.17-alpha.0 [c90c3])\n' +
       '- @storybook/addon-actions@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
       '- @storybook/addon-backgrounds@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
       '- @storybook/addon-controls@npm:6.5.17-alpha.0 (@storybook/api@npm:6.5.17-alpha.0)\n' +
@@ -151,5 +153,17 @@ test('vitual child', () => {
       '@storybook/api@npm:6.5.16\n' +
       '- @storybook/addons@npm:6.5.16 (@storybook/api@npm:6.5.16)\n' +
       '- @storybook/ui@npm:6.5.16 (@storybook/api@npm:6.5.16)\n',
+  );
+});
+
+test('virtual only', () => {
+  loadAndAssert(
+    'virtual-only.txt',
+    'Found 1 version:\n' +
+      '\n' +
+      '@ornikar/react-apollo@npm:5.17.1\n' +
+      '- @ornikar/learner-apps-shared@workspace:@ornikar/learner-apps-shared (@ornikar/react-apollo@npm:5.17.1 [0be1b])\n' +
+      '- @ornikar/learner-native-app@workspace:@ornikar/learner-native-app (@ornikar/react-apollo@npm:5.17.1 [74b4e])\n' +
+      '- @ornikar/learner-webapp@workspace:@ornikar/learner-webapp (@ornikar/react-apollo@npm:5.17.1 [72efe])\n',
   );
 });
