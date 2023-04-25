@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/christophehurpeau/yarn-why-duplicate/compare/v1.0.0...v1.1.0) (2023-04-25)
+
+
+### Features
+
+* force 1.1.0 ([d333635](https://github.com/christophehurpeau/yarn-why-duplicate/commit/d3336353ffe709910577310116dab70dd8f25f5c))
+
 ## 1.0.0 (2023-04-25)
 
 
