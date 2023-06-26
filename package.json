@@ -45,7 +45,7 @@
   },
   "pob": {},
   "dependencies": {
-    "@yarnpkg/core": "4.0.0-rc.45",
+    "@yarnpkg/core": "4.0.0-rc.46",
     "semver": "7.5.3"
   },
   "devDependencies": {
