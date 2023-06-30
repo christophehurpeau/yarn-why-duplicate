@@ -1,9 +1,7 @@
-/* eslint-disable prefer-template */
 import { strictEqual } from 'assert/strict';
 import fs from 'fs';
-import { Configuration } from '@yarnpkg/core';
-// eslint-disable-next-line import/no-unresolved
 import test from 'node:test';
+import { Configuration } from '@yarnpkg/core';
 import { displayDuplicates } from '../lib/displayDuplicates.js';
 import { identifyDuplicates } from '../lib/identifyDuplicates.js';
 import { parseYarnWhy } from '../lib/readAndParseYarnWhy.js';
