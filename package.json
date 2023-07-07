@@ -46,7 +46,7 @@
   "pob": {},
   "dependencies": {
     "@yarnpkg/core": "4.0.0-rc.47",
-    "semver": "7.5.3"
+    "semver": "7.5.4"
   },
   "devDependencies": {
     "@pob/commitlint-config": "6.0.1",
