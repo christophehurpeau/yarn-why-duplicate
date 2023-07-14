@@ -1,5 +1,5 @@
-import { strictEqual } from 'assert/strict';
-import fs from 'fs';
+import { strictEqual } from 'node:assert/strict';
+import fs from 'node:fs';
 import test from 'node:test';
 import { Configuration } from '@yarnpkg/core';
 import { displayDuplicates } from '../lib/displayDuplicates.js';
