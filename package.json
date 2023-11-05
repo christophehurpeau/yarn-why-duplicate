@@ -17,7 +17,7 @@
   "engines": {
     "node": ">=18.12.0"
   },
-  "packageManager": "yarn@3.6.2",
+  "packageManager": "yarn@4.0.1",
   "main": "./lib/index.js",
   "exports": {
     ".": "./lib/index.js",
@@ -25,6 +25,10 @@
   },
   "sideEffects": false,
   "bin": "./bin/yarn-why-duplicate.mjs",
+  "files": [
+    "lib",
+    "bin"
+  ],
   "scripts": {
     "checks": "node scripts/check-package.js",
     "clean:build": "true",
@@ -45,13 +49,13 @@
   },
   "pob": {},
   "dependencies": {
-    "@yarnpkg/core": "4.0.0-rc.48",
+    "@yarnpkg/core": "4.0.1",
     "semver": "7.5.4"
   },
   "devDependencies": {
     "@pob/commitlint-config": "6.2.0",
     "@pob/eslint-config": "51.1.2",
-    "@pob/root": "8.2.2",
+    "@pob/root": "8.6.0",
     "check-package-dependencies": "6.8.0",
     "eslint": "8.53.0"
   }
