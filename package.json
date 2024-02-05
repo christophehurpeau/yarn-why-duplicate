@@ -51,7 +51,7 @@
   "prettier": "@pob/root/prettier-config",
   "dependencies": {
     "@yarnpkg/core": "4.0.1",
-    "semver": "7.5.4"
+    "semver": "7.6.0"
   },
   "devDependencies": {
     "@pob/commitlint-config": "6.3.1",
