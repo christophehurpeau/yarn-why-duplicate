@@ -37,9 +37,9 @@
     "lint:prettier:fix": "pob-root-prettier --write .",
     "postinstallDev": "pob-root-postinstall",
     "test": "TS_NODE_PROJECT=tsconfig.test.json node --test test/*.js",
-    "test:coverage": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --src ./src node --test test/*.js",
-    "test:coverage:json": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --reporter=json --src ./src node --test test/*.js",
-    "test:coverage:lcov": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --reporter=lcov --src ./src node --test test/*.js",
+    "test:coverage": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --src ./lib node --test test/*.js",
+    "test:coverage:json": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --reporter=json --src ./lib node --test test/*.js",
+    "test:coverage:lcov": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --reporter=lcov --src ./lib node --test test/*.js",
     "test:watch": "TS_NODE_PROJECT=tsconfig.test.json node --test test/*.js"
   },
   "commitlint": {
@@ -55,8 +55,8 @@
   },
   "devDependencies": {
     "@pob/commitlint-config": "6.3.1",
-    "@pob/eslint-config": "53.0.0",
-    "@pob/root": "9.1.0",
+    "@pob/eslint-config": "54.0.0",
+    "@pob/root": "9.2.0",
     "check-package-dependencies": "7.0.0",
     "eslint": "8.56.0"
   }
