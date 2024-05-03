@@ -9,13 +9,13 @@ import { parseYarnWhy } from '../lib/readAndParseYarnWhy.js';
 const configuration = Configuration.create(process.cwd());
 configuration.values.set('enableColors', false);
 
-const loadAndAssert = (fileName, expected) => {
+const loadAndAssert = (fileName, expected, { recursive = false } = {}) => {
   const fileContent = fs.readFileSync(
     new URL(`./fixtures/${fileName}`, import.meta.url),
     'utf8',
   );
   const content = parseYarnWhy(fileContent);
-  const duplicates = identifyDuplicates(content);
+  const duplicates = identifyDuplicates(content, recursive);
   const logs = [];
   displayDuplicates(duplicates, (log = '') => logs.push(log), configuration);
   strictEqual(logs.join('\n'), expected);
@@ -34,6 +34,22 @@ test('no duplicates', () => {
       '- listr-verbose-renderer@npm:0.5.0 (date-fns@npm:^1.27.2)\n',
   );
 });
+
+test('no duplicates', () => {
+  loadAndAssert(
+    'date-fns-recursive.txt',
+    'Found 1 version:\n' +
+      '\n' +
+      'date-fns@npm:1.30.1\n' +
+      '- @ornikar/learner-apps-shared@workspace:@ornikar/learner-apps-shared (date-fns@npm:1.30.1)\n' +
+      '- @ornikar/learner-native-app@workspace:@ornikar/learner-native-app (date-fns@npm:1.30.1)\n' +
+      '- @ornikar/learner-webapp@workspace:@ornikar/learner-webapp (date-fns@npm:1.30.1)\n' +
+      '- date-fns-timezone@npm:0.1.4 (date-fns@npm:^1.29.0)\n' +
+      '- listr-verbose-renderer@npm:0.5.0 (date-fns@npm:^1.27.2)\n',
+      { recursive: true },
+  );
+});
+
 
 test('simple duplicates', () => {
   loadAndAssert(
