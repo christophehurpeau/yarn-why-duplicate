@@ -1,6 +1,5 @@
 import { strictEqual } from "node:assert/strict";
 import fs from "node:fs";
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import test from "node:test";
 import { Configuration } from "@yarnpkg/core";
 import { displayDuplicates } from "../lib/displayDuplicates.js";
