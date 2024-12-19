@@ -16,7 +16,7 @@
   "type": "module",
   "packageManager": "yarn@4.5.3",
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=18.12.0"
   },
   "sideEffects": false,
   "bin": "./bin/yarn-why-duplicate.mjs",
