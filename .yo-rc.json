@@ -8,13 +8,15 @@
     "renovate": {
       "enable": true
     },
-    "lib": {
+    "monorepo": {
+      "ci": true,
+      "testing": true,
+      "testRunner": "node",
+      "codecov": false,
       "documentation": false,
-      "testing": {
-        "runner": "node",
-        "ci": true,
-        "codecov": false
-      }
+      "typescript": false,
+      "eslint": true,
+      "packageNames": ["yarn-why-duplicate"]
     }
   }
 }

@@ -54,7 +54,7 @@ jobs:
           fi
           echo >> ./.yarnrc.yml
           echo "npmAuthToken: $NODE_AUTH_TOKEN" >> ./.yarnrc.yml
-          yarn npm publish
+          yarn workspaces foreach --all --parallel --no-private npm publish --tolerate-republish
         if: github.ref == 'refs/heads/main' && !inputs.dry-run
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,58 +1,37 @@
 {
-  "name": "yarn-why-duplicate",
+  "name": "pm-tools-monorepo",
+  "private": true,
   "version": "2.0.0",
-  "description": "Simple bin to know why a package is duplicated",
-  "keywords": [
-    "yarn",
-    "berry"
-  ],
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (https://christophe.hurpeau.com)",
   "license": "ISC",
-  "repository": "https://github.com/christophehurpeau/yarn-why-duplicate.git",
-  "homepage": "https://github.com/christophehurpeau/yarn-why-duplicate#readme",
-  "bugs": {
-    "url": "https://github.com/christophehurpeau/yarn-why-duplicate/issues"
-  },
+  "repository": "https://github.com/christophehurpeau/pm-tools.git",
+  "homepage": "https://github.com/christophehurpeau/pm-tools",
   "type": "module",
   "packageManager": "yarn@4.5.3",
   "engines": {
     "node": ">=20.9.0"
   },
-  "sideEffects": false,
-  "bin": "./bin/yarn-why-duplicate.mjs",
-  "main": "./lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "lib",
-    "bin"
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
-    "checks": "node scripts/check-package.js",
+    "checks": "node scripts/check-packages.js",
     "lint": "yarn run lint:prettier && yarn run lint:eslint",
     "lint:eslint": "eslint --quiet .",
     "lint:prettier": "pob-root-prettier --check .",
     "lint:prettier:fix": "pob-root-prettier --write .",
-    "postinstallDev": "pob-root-postinstall",
-    "test": "node --test test/*.js",
-    "test:coverage": "npx c8 --all --src ./lib node --test test/*.js",
-    "test:coverage:json": "npx c8 --reporter=json --all --src ./lib node --test test/*.js",
-    "test:coverage:lcov": "TS_NODE_PROJECT=tsconfig.test.json npx c8 --reporter=lcov --src ./lib node --test test/*.js",
-    "test:watch": "node --test test/*.js"
+    "postinstall": "pob-root-postinstall",
+    "test": "node --test packages/*/test/**/*.js",
+    "test:coverage": "npx c8 --all --src ./src node --test packages/*/test/**/*.js",
+    "test:coverage:json": "npx c8 --reporter=json --all --src ./src node --test packages/*/test/**/*.js",
+    "test:watch": "node --test packages/*/test/**/*.js"
   },
   "commitlint": {
     "extends": [
       "@pob/commitlint-config"
     ]
   },
-  "pob": {},
   "prettier": "@pob/root/prettier-config",
-  "dependencies": {
-    "@yarnpkg/core": "4.0.3",
-    "semver": "7.6.0"
-  },
   "devDependencies": {
     "@pob/commitlint-config": "8.0.1",
     "@pob/eslint-config": "59.2.0",

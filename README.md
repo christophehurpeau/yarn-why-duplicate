@@ -1,22 +1,11 @@
 <h3 align="center">
-  yarn-why-duplicate
+  pm-tools-monorepo
 </h3>
 
-<p align="center">
-  Simple bin to know why a package is duplicated
-</p>
+<h1>Packages</h1>
 
-<p align="center">
-  <a href="https://npmjs.org/package/yarn-why-duplicate"><img src="https://img.shields.io/npm/v/yarn-why-duplicate.svg?style=flat-square"></a>
-  <a href="https://npmjs.org/package/yarn-why-duplicate"><img src="https://img.shields.io/npm/dw/yarn-why-duplicate.svg?style=flat-square"></a>
-  <a href="https://npmjs.org/package/yarn-why-duplicate"><img src="https://img.shields.io/node/v/yarn-why-duplicate.svg?style=flat-square"></a>
-  <a href="https://npmjs.org/package/yarn-why-duplicate"><img src="https://img.shields.io/npm/types/yarn-why-duplicate.svg?style=flat-square"></a>
-</p>
+This repository is a monorepo that we manage using [Yarn Workspaces](https://yarnpkg.com/features/workspaces).
 
-## Usage
-
-With yarn berry:
-
-```
-yarn dlx yarn-why-duplicate <dependencyName>
-```
+| Package                                           | Version                                                                                                                                      | Description                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [yarn-why-duplicate](packages/yarn-why-duplicate) | <a href="https://npmjs.org/package/yarn-why-duplicate"><img src="https://img.shields.io/npm/v/yarn-why-duplicate.svg?style=flat-square"></a> | Simple bin to know why a package is duplicated |
